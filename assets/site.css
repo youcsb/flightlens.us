@@ -55,7 +55,11 @@ body {
 
 body.is-locked { overflow: hidden; }
 
-img { display: block; max-width: 100%; }
+/* height:auto is not optional here. Every <img> carries width/height attributes
+   so the browser can reserve space before the file loads — but that means any
+   rule shrinking the width without releasing the height renders the picture
+   stretched. This keeps the aspect ratio no matter what else applies. */
+img { display: block; max-width: 100%; height: auto; }
 
 a { color: inherit; }
 
