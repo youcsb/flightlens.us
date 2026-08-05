@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everett Altmann — Plane Spotting</title>
+<meta name="description" content="Plane spotting photographs by Everett Altmann, shot at Seattle–Tacoma International and around the Pacific Northwest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Big+Shoulders+Display:wght@400..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="home">
+
+<a class="skip" href="#main">Skip to the photographs</a>
+
+<main id="main">
+
+  <!-- The hero is one photograph and the strip that identifies it. -->
+  <section class="hero">
+    <img class="hero-img"
+         src="images/narrowbodies/01 - 737-800 - United Airlines - KSEA.jpg"
+         alt="A United Boeing 737-800 rotating off the runway at Seattle–Tacoma International at sunset, with the control tower behind it"
+         width="2200" height="1468"
+         fetchpriority="high" decoding="async">
+
+    <div class="hero-body">
+      <p class="hero-kicker">I've loved airplanes since I was two. One day I'll fly them.</p>
+      <h1 class="hero-title">Until then,<br>I photograph them.</h1>
+      <div class="strip">
+        <span class="strip-tab"></span>
+        <span class="strip-cell">737-800</span>
+        <span class="strip-cell strip-op">United Airlines</span>
+        <span class="strip-cell strip-field">KSEA</span>
+      </div>
+    </div>
+
+    <p class="mono hero-scroll">Scroll</p>
+  </section>
+
+  <!-- Everett, in his own words. -->
+  <section class="band wrap">
+    <div class="statement">
+      <div class="statement-aside">
+        <span class="mono">Who's shooting</span>
+        <span class="mono">Seattle, Washington</span>
+      </div>
+      <div>
+        <p>I've loved aviation since I was two years old. I want to be a pilot.</p>
+        <p>Until I'm old enough for that, I go out to the fence and photograph
+          whatever comes through — mostly at <strong>Sea-Tac</strong>, sometimes
+          up at Paine Field, and every August over Lake Washington when the Navy
+          shows up for Seafair.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Everett's own frames. -->
+  <section class="band band--tight wrap">
+    <div class="band-head">
+      <h2 id="mine-heading">Recent catches</h2>
+      <span class="mono" data-own-count></span>
+    </div>
+  </section>
+  <div class="hang wrap" data-own aria-labelledby="mine-heading"></div>
+
+  <!-- Collections, racked like strips in a bay. -->
+  <section class="band wrap" aria-labelledby="bay-heading">
+    <div class="band-head">
+      <h2 id="bay-heading">The board</h2>
+      <span class="mono" data-bay-count></span>
+    </div>
+    <div data-bay></div>
+  </section>
+
+</main>
+
+<div data-footer></div>
+
+<script src="assets/photos.js"></script>
+<script src="assets/aircraft.js"></script>
+<script src="assets/notes.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

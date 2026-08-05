@@ -1,0 +1,829 @@
+/* ==========================================================================
+   Everett Altmann — plane spotting
+
+   The whole design comes off the airfield itself. The page sits on Pacific
+   Northwest overcast grey, the type is airport-signage condensed, and the one
+   colour is the yellow used on taxiway guidance signs — the same yellow
+   sitting in the corner of the photograph on the front page.
+
+   The signature is the strip: every photograph is captioned the way an air
+   traffic controller writes a flight progress strip, in fixed monospace
+   columns — registration, type, operator, field. It's not decoration. It's
+   exactly what a spotter writes down.
+   ========================================================================== */
+
+:root {
+  --overcast: #d7dcdf;   /* the page — a real PNW ceiling, cool and flat */
+  --deck:     #c3c9cd;   /* recessed panels, the layer below the ceiling */
+  --strip:    #f0f2f3;   /* strip card stock */
+  --ink:      #13171a;   /* type, and the lightbox */
+  --ink-soft: #4e565e;   /* data, secondary */
+  --taxiway:  #e8b71f;   /* airfield sign yellow. Used once per view, no more */
+  --navy:     #16233d;   /* strip tabs */
+
+  --display: "Big Shoulders Display", "Haettenschweiler", Impact, sans-serif;
+  --body: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --gap: clamp(1.1rem, 3.2vw, 2.4rem);
+  --wrap: 1560px;
+  --bar: 60px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--overcast);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.is-locked { overflow: hidden; }
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--taxiway);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gap);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--taxiway);
+  color: var(--ink);
+  padding: 0.7rem 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.skip:focus { left: 0; }
+
+/* --------------------------------------------------------------------------
+   The strip
+
+   A flight progress strip: a card with a coloured tab down the left edge and
+   the data in ruled columns. Empty fields are never rendered, so a photograph
+   with no registration simply has one column fewer and still looks complete.
+   -------------------------------------------------------------------------- */
+
+.strip {
+  display: flex;
+  align-items: stretch;
+  background: var(--strip);
+  border: 1px solid rgba(19, 23, 26, 0.16);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  overflow: hidden;
+}
+
+.strip-tab {
+  flex: 0 0 auto;
+  width: 7px;
+  background: var(--navy);
+  transition: width 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.strip-cell {
+  flex: 0 0 auto;
+  padding: 0.42rem 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: 1px solid rgba(19, 23, 26, 0.13);
+  display: flex;
+  align-items: center;
+}
+/* The tab is the first child, so the rule keys off it rather than :first-of-type. */
+.strip-tab + .strip-cell { border-left: 0; }
+
+/* The registration is the one thing a spotter reads first. */
+.strip-reg {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.13em;
+}
+
+/* Operator is the squeezable one — it truncates before anything else does. */
+.strip-op { min-width: 0; flex: 0 1 auto; }
+
+.strip-field {
+  margin-left: auto;
+  background: var(--taxiway);
+  color: var(--ink);
+  font-weight: 500;
+  border-left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--bar);
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding-inline: var(--gap);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.masthead[data-solid="true"] {
+  background: rgba(215, 220, 223, 0.93);
+  backdrop-filter: blur(9px);
+  border-bottom-color: rgba(19, 23, 26, 0.14);
+}
+
+/* The hero is a pale photograph, so the bar keeps ink type throughout and only
+   gains a background once there's content running underneath it. */
+
+.wordmark {
+  font-family: var(--display);
+  font-size: 1.32rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.wordmark em {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.nav a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-block: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav a:hover { color: var(--ink); }
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--taxiway);
+}
+
+.menu-toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 0;
+  padding: 0.4rem 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Full-screen menu (small screens)
+   -------------------------------------------------------------------------- */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: var(--ink);
+  color: #fff;
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+}
+.menu[data-open="true"] { opacity: 1; pointer-events: auto; }
+
+.menu-close {
+  position: absolute;
+  top: 1.15rem;
+  right: var(--gap);
+  background: none;
+  border: 0;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: var(--display);
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.menu-link[aria-current="page"] { color: var(--taxiway); }
+.menu-link em {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.menu-foot {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 1.5rem;
+}
+.menu-foot a {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   Hero — one photograph, and the strip that identifies it
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Anchored low, which lifts the 737 and the tower clear of the words. */
+  object-position: center 88%;
+}
+
+/* Enough scrim to hold white type over the foreground, not so much that it
+   flattens the sunset above it. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 11, 14, 0.88) 0%,
+    rgba(8, 11, 14, 0.55) 24%,
+    rgba(8, 11, 14, 0.1) 48%,
+    rgba(8, 11, 14, 0) 68%
+  );
+}
+
+.hero-body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding: 0 var(--gap) clamp(1.6rem, 4vw, 3rem);
+}
+
+.hero-kicker {
+  margin: 0 0 0.65rem;
+  max-width: 30ch;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  line-height: 1.4;
+}
+
+.hero-title {
+  margin: 0 0 1.35rem;
+  font-family: var(--display);
+  font-weight: 700;
+  /* Sized to sit inside the dark foreground band, under the airplane. */
+  font-size: clamp(2.5rem, 7.6vw, 7.4rem);
+  line-height: 0.85;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.hero .strip { max-width: min(100%, 720px); }
+
+.hero-scroll {
+  position: absolute;
+  right: var(--gap);
+  bottom: clamp(1.6rem, 4vw, 3rem);
+  z-index: 2;
+}
+
+/* The page-load sequence: the photograph settles, the strip slides into its
+   holder the way a controller pushes one in, then the words arrive. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-img { animation: settle 1.5s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+  .hero .strip { animation: slot 0.72s cubic-bezier(0.2, 0.8, 0.25, 1) 0.34s both; }
+  .hero-kicker { animation: rise 0.7s ease 0.62s both; }
+  .hero-title { animation: rise 0.8s ease 0.72s both; }
+  .hero-scroll { animation: rise 0.7s ease 1s both; }
+}
+
+@keyframes settle {
+  from { transform: scale(1.06); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes slot {
+  from { transform: translateX(-102%); }
+  to   { transform: translateX(0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+.band { padding-block: clamp(3.2rem, 7vw, 6rem); }
+.band--tight { padding-block: clamp(2rem, 4vw, 3.2rem); }
+.band--deck { background: var(--deck); }
+
+.band-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.7rem;
+  margin-bottom: clamp(1.3rem, 2.6vw, 2.1rem);
+  border-bottom: 1px solid rgba(19, 23, 26, 0.2);
+}
+
+.band-head h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* Everett's own words. Set larger than body copy and given room. */
+.statement {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(1.2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.statement-aside { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.statement p {
+  margin: 0 0 1rem;
+  max-width: 46ch;
+  font-size: clamp(1.15rem, 2.1vw, 1.6rem);
+  line-height: 1.42;
+  letter-spacing: -0.005em;
+}
+.statement p:last-child { margin-bottom: 0; }
+.statement strong { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   The bay — collections, racked like strips waiting to be worked
+   -------------------------------------------------------------------------- */
+
+.bay { display: flex; flex-direction: column; gap: 6px; }
+
+.bay-strip {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--strip);
+  border: 1px solid rgba(19, 23, 26, 0.16);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1),
+              box-shadow 0.28s ease;
+}
+
+.bay-strip:hover,
+.bay-strip:focus-visible {
+  transform: translateX(10px);
+  box-shadow: -10px 0 0 -4px var(--taxiway);
+}
+.bay-strip:hover .strip-tab,
+.bay-strip:focus-visible .strip-tab { width: 16px; background: var(--taxiway); }
+
+.bay-thumb {
+  flex: 0 0 auto;
+  width: clamp(74px, 10vw, 122px);
+  height: 100%;
+  min-height: 68px;
+  object-fit: cover;
+  filter: saturate(0.94);
+}
+
+.bay-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2.4vw, 2rem);
+  padding: 0.6rem clamp(0.8rem, 2vw, 1.4rem);
+}
+
+.bay-name {
+  flex: 0 0 auto;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.bay-blurb {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.bay-count {
+  flex: 0 0 auto;
+  align-self: center;
+  padding-right: clamp(0.8rem, 2vw, 1.4rem);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   The hang — justified rows
+
+   Each plate's flex-grow is its aspect ratio, so every photograph in a row
+   lands on exactly the same height with no cropping and no JavaScript maths.
+   -------------------------------------------------------------------------- */
+
+.hang { display: flex; flex-direction: column; gap: var(--gap); }
+
+.hang-row { display: flex; gap: var(--gap); align-items: flex-start; }
+
+.plate {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.plate[data-seen="true"] { opacity: 1; transform: none; }
+
+.plate-frame {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--deck);
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.plate-frame img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.plate-frame:hover img { transform: scale(1.022); }
+
+.plate .strip { border-top: 0; }
+
+.hang-row[data-solo="true"] .plate { max-width: 100%; }
+
+/* --------------------------------------------------------------------------
+   Gallery page header
+   -------------------------------------------------------------------------- */
+
+.room {
+  padding-top: calc(var(--bar) + clamp(2rem, 5vw, 4.5rem));
+  padding-bottom: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.room-title {
+  margin: 0.5rem 0 0.6rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(3rem, 12vw, 8.5rem);
+  line-height: 0.84;
+  text-transform: uppercase;
+  letter-spacing: 0.008em;
+}
+
+.room-blurb {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.onward { padding-block: clamp(2.4rem, 6vw, 4.5rem); }
+.onward a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(19, 23, 26, 0.2);
+  text-decoration: none;
+}
+.onward-name {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.onward a:hover .onward-name { color: var(--ink-soft); }
+
+/* --------------------------------------------------------------------------
+   Prose pages
+   -------------------------------------------------------------------------- */
+
+.page { padding-top: calc(var(--bar) + clamp(2rem, 5vw, 4.5rem)); }
+
+.page-title {
+  margin: 0.4rem 0 clamp(1.4rem, 3vw, 2.4rem);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 10vw, 7rem);
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.prose { max-width: 58ch; }
+.prose p {
+  margin: 0 0 1.15rem;
+  font-size: clamp(1rem, 1.55vw, 1.14rem);
+  line-height: 1.62;
+}
+.prose p.lead {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+.prose h2 {
+  margin: 2.2rem 0 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.prose a { text-decoration: underline; text-underline-offset: 3px; }
+
+.credit-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 90ch;
+}
+.credit-list li {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(19, 23, 26, 0.13);
+}
+.credit-list b { color: var(--ink); font-weight: 500; }
+
+/* --------------------------------------------------------------------------
+   Lightbox
+   -------------------------------------------------------------------------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  background: rgba(9, 12, 15, 0.97);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+.lightbox[data-open="true"] { opacity: 1; pointer-events: auto; }
+
+.lightbox-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.9rem var(--gap);
+}
+
+.lightbox-close {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lightbox-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding-inline: var(--gap);
+}
+
+.lightbox-stage img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22%;
+  min-width: 62px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+.lightbox-nav[data-dir="prev"] { left: 0; cursor: w-resize; }
+.lightbox-nav[data-dir="next"] { right: 0; cursor: e-resize; }
+.lightbox-nav:focus-visible { opacity: 1; outline-offset: -6px; }
+
+.lightbox-foot {
+  padding: 0.9rem var(--gap) 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.lightbox-foot .strip { max-width: min(100%, 720px); }
+
+.lightbox-note {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 0.92rem;
+  line-height: 1.52;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.lightbox-count {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem 1.6rem;
+  padding-block: 2rem 2.6rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid rgba(19, 23, 26, 0.2);
+}
+.site-foot a { text-decoration: none; }
+.site-foot a:hover { color: var(--ink); }
+.site-foot .spacer { margin-left: auto; }
+
+/* --------------------------------------------------------------------------
+   Narrower screens
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1080px) {
+  .bay-blurb { display: none; }
+}
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .menu-toggle { display: block; }
+
+  .statement { grid-template-columns: 1fr; }
+  .statement-aside { flex-direction: row; gap: 1.2rem; }
+
+  /* Two-up at most, and let a row of three break rather than go letterbox. */
+  .hang-row { flex-wrap: wrap; }
+  .plate { flex-basis: calc(50% - var(--gap)); }
+}
+
+/* A phone crops a landscape photograph from the sides, so the hero is
+   re-anchored onto the 737 and the tower instead of the middle of the frame,
+   which would cut the airplane in half. */
+@media (max-width: 700px) {
+  .hero-img { object-position: 24% center; }
+}
+
+@media (max-width: 560px) {
+  .hang-row { flex-direction: column; }
+  .plate { flex-basis: auto; width: 100%; }
+
+  .bay-text { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
+  .bay-count { display: none; }
+
+  .strip { font-size: 0.6rem; letter-spacing: 0.08em; }
+  .strip-cell { padding: 0.38rem 0.55rem; }
+
+  .hero-scroll { display: none; }
+}
