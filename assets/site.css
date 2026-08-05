@@ -636,6 +636,24 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
+/* About page — the photograph of Everett flying sits beside the opening lines,
+   because those two things are the same statement told twice. */
+.about-top {
+  display: grid;
+  /* The photograph is square and tall for its width, so it takes the narrower
+     column — otherwise the text beside it runs out long before the image does. */
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(1.4rem, 4vw, 3.4rem);
+  align-items: start;
+  margin-bottom: clamp(1.8rem, 4vw, 3rem);
+}
+
+.about-shot { margin: 0; }
+.about-shot img { width: 100%; height: auto; background: var(--deck); }
+.about-shot .strip { border-top: 0; }
+
+.about-lead { max-width: none; }
+
 .prose { max-width: 58ch; }
 .prose p {
   margin: 0 0 1.15rem;
@@ -802,6 +820,8 @@ a { color: inherit; }
 
   .statement { grid-template-columns: 1fr; }
   .statement-aside { flex-direction: row; gap: 1.2rem; }
+
+  .about-top { grid-template-columns: 1fr; }
 
   /* Two-up at most, and let a row of three break rather than go letterbox. */
   .hang-row { flex-wrap: wrap; }
