@@ -109,6 +109,11 @@
   function buildChrome() {
     var list = rooms();
 
+    /* The flight simulator. It is a separate app on its own origin — a
+       ~100 MB WebGL build with its own terrain data — so it is linked rather
+       than embedded, but it appears in the nav as a collection would. */
+    var SIM_URL = "https://youcsb.github.io/flightlens-sim/";
+
     var bar = el("header", "masthead");
     bar.setAttribute("data-solid", page === "home" ? "false" : "true");
 
@@ -127,7 +132,7 @@
       nav.appendChild(link);
     });
 
-    [["About", "about.html", "about"]].forEach(function (t) {
+    [["Flight Sim", SIM_URL, "sim"], ["About", "about.html", "about"]].forEach(function (t) {
       var link = el("a", null, t[0]);
       link.href = t[1];
       if (page === t[2]) link.setAttribute("aria-current", "page");
@@ -160,7 +165,7 @@
     });
 
     var foot = el("div", "menu-foot");
-    [["About", "about.html"], ["Credits", "credits.html"]].forEach(function (t) {
+    [["Flight Sim", SIM_URL], ["About", "about.html"], ["Credits", "credits.html"]].forEach(function (t) {
       var link = el("a", null, t[0]);
       link.href = t[1];
       foot.appendChild(link);
