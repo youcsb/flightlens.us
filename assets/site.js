@@ -109,10 +109,12 @@
   function buildChrome() {
     var list = rooms();
 
-    /* The flight simulator. It is a separate app on its own origin — a
-       ~100 MB WebGL build with its own terrain data — so it is linked rather
-       than embedded, but it appears in the nav as a collection would. */
-    var SIM_URL = "https://youcsb.github.io/flightlens-sim/";
+    /* The flight simulator. A separate app on its own subdomain — a ~100 MB
+       WebGL build carrying its own terrain data — so it is linked rather than
+       embedded, but it appears in the nav as a collection would. The subdomain
+       is a grey-cloud CNAME to youcsb.github.io; it must stay DNS-only or
+       GitHub cannot renew its certificate, exactly like the apex. */
+    var SIM_URL = "https://game.flightlens.us/";
 
     var bar = el("header", "masthead");
     bar.setAttribute("data-solid", page === "home" ? "false" : "true");
