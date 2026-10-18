@@ -18,6 +18,11 @@ window.NOTES = {
     "running into it is pure luck.",
 
 
+  "images/narrowbodies/40 - 737-800 - Southwest Airlines - KSEA.jpg":
+    "Behind the Southwest, the white 737 reads \u201coneworld\u201d down the side with " +
+    "Alaska in script under it \u2014 one of the handful Alaska painted when it " +
+    "joined the alliance. Air France is parked behind them both.",
+
   "images/regional/01 - E175 - Horizon Air - KSEA.jpg":
     "Shot through the jetway window at Sea-Tac, close enough to see the crew " +
     "running their checks.",

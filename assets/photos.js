@@ -20,7 +20,6 @@ window.LOG = {
         { reg: "", type: "787", op: "Japan Airlines", field: "KSEA", s: "images/widebodies/12 - 787 - Japan Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "", type: "787-10", op: "British Airways", field: "KSEA", s: "images/widebodies/13 - 787-10 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "A350-900", op: "Lufthansa", field: "KSEA", s: "images/widebodies/14 - A350-900 - Lufthansa - KSEA.jpg", w: 2200, h: 1466, own: true },
-        { reg: "", type: "787-9", op: "Qantas", field: "KSEA", s: "images/widebodies/15 - 787-9 - Qantas - KSEA.jpg", w: 2200, h: 1237, own: true },
       ]
     },
     "narrowbodies": {
@@ -66,9 +65,10 @@ window.LOG = {
         { reg: "", type: "737", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/37 - 737 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "737", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/38 - 737 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "737", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/39 - 737 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
-        { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/40 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
-        { reg: "", type: "A320", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/41 - A320 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1649, own: true },
-        { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/42 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1467, own: true },
+        { reg: "", type: "737-800", op: "Southwest Airlines", field: "KSEA", s: "images/narrowbodies/40 - 737-800 - Southwest Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/41 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "A320", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/42 - A320 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1649, own: true },
+        { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/43 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1467, own: true },
       ]
     },
     "regional": {
