@@ -58,6 +58,9 @@ COLLECTIONS = [
     ("regional", "Regional",
      "Short hops on small jets and turboprops. Easy to overlook, and some of "
      "my favorite shapes on the field."),
+    ("cargo", "Freight",
+     "The boxes everyone forgets are on the airfield too. Most of it moves "
+     "overnight, which makes catching one in daylight a win."),
     ("military", "Military",
      "Whatever the Navy and the Air Force bring through. Seafair week is the "
      "best flying of the year."),

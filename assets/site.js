@@ -56,6 +56,29 @@
     return picks;
   }
 
+  /* A front-page selection, taken round-robin across the rooms so the first
+     screen shows a widebody, a 737, a turboprop and a freighter rather than
+     fifteen of whatever happens to sort first. Each room is already ordered
+     best-first, so taking from the top of each is the pick. */
+  function featuredPhotos(limit) {
+    var queues = LOG.order.map(function (slug) {
+      var c = LOG.collections[slug];
+      return c.photos.filter(function (p) { return p.own; })
+                     .map(function (p) {
+                       return Object.assign({ from: c.name }, p);
+                     });
+    });
+    var picks = [];
+    for (var depth = 0; picks.length < limit; depth++) {
+      var tookOne = false;
+      for (var q = 0; q < queues.length && picks.length < limit; q++) {
+        if (queues[q][depth]) { picks.push(queues[q][depth]); tookOne = true; }
+      }
+      if (!tookOne) break;          // every room exhausted
+    }
+    return picks;
+  }
+
   /* ------------------------------------------------------------------------
      The type write-up
 
@@ -496,12 +519,15 @@
   /* Home page: Everett's own frames, across every collection. */
   var ownHost = document.querySelector("[data-own]");
   if (ownHost) {
-    var mine = ownPhotos();
+    var total = ownPhotos().length;
+    var mine = featuredPhotos(12);
     renderHang(ownHost, mine, function (i) { lightbox.open(mine, i); });
 
     var ownCount = document.querySelector("[data-own-count]");
     if (ownCount) {
-      ownCount.textContent = mine.length + " frames, all mine";
+      ownCount.textContent = mine.length < total
+        ? mine.length + " of " + total + ", all mine"
+        : total + " frames, all mine";
     }
   }
 

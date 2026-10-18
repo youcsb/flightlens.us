@@ -42,6 +42,19 @@ window.TYPES = {
     "The original 777 — six wheels per main gear, long clean wings, no " +
     "winglets. The airplane Boeing built the modern widebody around.",
 
+  "787-10":
+    "The stretched Dreamliner, and the longest 787 Boeing builds. Same wing " +
+    "and nose as the -9 with two extra fuselage plugs, so it looks noticeably " +
+    "skinny for its length.",
+
+  "787":
+    "Boeing's carbon-fiber widebody. The sawtooth edges on the back of the " +
+    "engine nacelles are the giveaway, and they are what make it so quiet.",
+
+  "A330-900neo":
+    "The re-engined A330. New engines and a curled wingtip in place of the old " +
+    "flat fence, which is the quickest way to tell it from the original.",
+
   /* Narrowbodies ------------------------------------------------------ */
 
   "737":
@@ -67,6 +80,35 @@ window.TYPES = {
   "A320-200":
     "Airbus's answer to the 737. Rounder nose, wingtip fences instead of " +
     "winglets, and a much smoother join where the wing meets the body.",
+
+  "737-9 MAX":
+    "The long MAX. Split-tip winglet pointing up and down at once, and engines " +
+    "sitting further forward and higher on the wing than any older 737.",
+
+  "737-700":
+    "The short 737. Stubby enough that the tail looks too big for it, which is " +
+    "the easiest way to pick one out of a line of Southwest airplanes.",
+
+  "757-300":
+    "The stretched 757, and a genuinely strange-looking airplane — the same " +
+    "tall gear and huge engines with another twenty-three feet of fuselage.",
+
+  "A220-300":
+    "Originally the Bombardier C Series. Narrow body, tall gear, and engines " +
+    "that look oversized for it. Delta flies them on routes a 737 would waste.",
+
+  "A321neo":
+    "The longest A320-family jet with the new engines. Curled sharklets rather " +
+    "than the old flat fences, and quiet enough to miss if you are not looking.",
+
+  "A321":
+    "A stretched A320. Same cockpit and wing, four extra rows of windows, and " +
+    "an extra pair of main wheels under the heavier ones.",
+
+  "A320":
+    "Airbus's answer to the 737 and half of everything Airbus has ever sold. " +
+    "Rounder nose than a Boeing, and a smoother join where the wing meets the " +
+    "body.",
 
   /* Regional ---------------------------------------------------------- */
 
@@ -101,6 +143,14 @@ window.TYPES = {
   "747-400ERF":
     "Extended-range freighter 747 — more fuel and a heavier takeoff weight " +
     "than the standard freighter.",
+
+  "777F":
+    "The freighter 777. No cabin windows, a main-deck cargo door on the left " +
+    "side, and the biggest twin engines flying.",
+
+  "Cessna 208 Caravan":
+    "A single-engine turboprop that hauls freight into fields too small for " +
+    "anything larger. FedEx runs a whole fleet of them as feeders.",
 
   /* Military ---------------------------------------------------------- */
 
