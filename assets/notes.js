@@ -17,13 +17,6 @@ window.NOTES = {
     "to the merger. It flies the ordinary schedule with no announcement, so " +
     "running into it is pure luck.",
 
-  "images/military/01 - FA-18 Super Hornet - US Navy Blue Angels - Seafair.jpg":
-    "Seafair, over Lake Washington. The diamond flies four jets about eighteen " +
-    "inches apart — you can see how little air is between them here.",
-
-  "images/military/02 - FA-18 Super Hornet - US Navy Blue Angels - Seafair.jpg":
-    "The Blue Angels work out of Boeing Field for Seafair week every August, " +
-    "so the whole city gets them low overhead for a few days.",
 
   "images/regional/01 - E175 - Horizon Air - KSEA.jpg":
     "Shot through the jetway window at Sea-Tac, close enough to see the crew " +
