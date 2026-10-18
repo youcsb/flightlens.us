@@ -33,15 +33,14 @@ KSEA.jpg` works fine — the strip closes the gap and nothing shows as blank.
 
 ### The numbers
 
-- **01–49** are Everett's own photographs.
-- **50 and up** are stand-ins from Wikimedia Commons, waiting to be replaced.
+Numbers are sort keys only — they never appear on the site, so gaps are fine
+and you can renumber freely to reorder a room.
 
-That split means adding your own photo never collides with a stand-in, and the
-front page can show only your own frames. The numbers are sort keys only — they
-never appear on the site, so gaps are fine.
-
-To replace a stand-in: delete the `50 - …` file, add yours as `04 - …`, and
-remove its line from `credits.html`.
+Every photograph on the site is Everett's own. Earlier there were stand-ins
+from Wikimedia Commons filling the empty rooms, numbered from 50 up so they
+could never collide with his; those have all been removed. If you ever want
+placeholders again, reuse that convention — the indexer still marks anything
+numbered under 50 as `own`, which is what the front page selects from.
 
 ### Then rebuild the index
 
@@ -109,7 +108,6 @@ won't exit on its own.
 ```
 index.html            front page — hero, statement, own frames, the board
 about.html            Everett's own words
-credits.html          attribution for the stand-in photographs
 <collection>.html     one gallery page per collection
 
 assets/site.css       the whole design system

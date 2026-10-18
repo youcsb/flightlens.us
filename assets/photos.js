@@ -9,7 +9,6 @@ window.LOG = {
       photos: [
         { reg: "N510DN", type: "A350-900", op: "Delta Air Lines", field: "KSEA", s: "images/widebodies/01 - N510DN - A350-900 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "D-AIKS", type: "A330-300", op: "Lufthansa", field: "KSEA", s: "images/widebodies/02 - D-AIKS - A330-300 - Lufthansa - KSEA.jpg", w: 2200, h: 1237, own: true },
-        { reg: "", type: "A330", op: "Delta Air Lines", field: "KSEA", s: "images/widebodies/03 - A330 - Delta Air Lines - KSEA.jpg", w: 2200, h: 893, own: true },
         { reg: "B-17807", type: "787-10", op: "EVA Air", field: "KSEA", s: "images/widebodies/04 - B-17807 - 787-10 - EVA Air - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "", type: "A330-900neo", op: "Condor", field: "KSEA", s: "images/widebodies/05 - A330-900neo - Condor - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "G-ZBLK", type: "787-10", op: "British Airways", field: "KSEA", s: "images/widebodies/06 - G-ZBLK - 787-10 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
@@ -22,13 +21,6 @@ window.LOG = {
         { reg: "", type: "787-10", op: "British Airways", field: "KSEA", s: "images/widebodies/13 - 787-10 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "A350-900", op: "Lufthansa", field: "KSEA", s: "images/widebodies/14 - A350-900 - Lufthansa - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "787-9", op: "Qantas", field: "KSEA", s: "images/widebodies/15 - 787-9 - Qantas - KSEA.jpg", w: 2200, h: 1237, own: true },
-        { reg: "9V-SHI", type: "A350-900", op: "Singapore Airlines", field: "VGHS", s: "images/widebodies/50 - 9V-SHI - A350-900 - Singapore Airlines - VGHS.jpg", w: 1800, h: 1012 },
-        { reg: "B-7837", type: "787-9", op: "Hainan Airlines", field: "KBOS", s: "images/widebodies/51 - B-7837 - 787-9 - Hainan Airlines - KBOS.jpg", w: 1800, h: 1200 },
-        { reg: "VH-ZNJ", type: "787-9", op: "Qantas", field: "KJFK", s: "images/widebodies/52 - VH-ZNJ - 787-9 - Qantas - KJFK.jpg", w: 1800, h: 1200 },
-        { reg: "PH-BVG", type: "777-200ER", op: "KLM", field: "EHAM", s: "images/widebodies/53 - PH-BVG - 777-200ER - KLM - EHAM.jpg", w: 1280, h: 962 },
-        { reg: "N385HA", type: "A330-200", op: "Hawaiian Airlines", field: "PHNL", s: "images/widebodies/54 - N385HA - A330-200 - Hawaiian Airlines - PHNL.jpg", w: 1280, h: 720 },
-        { reg: "JA01XJ", type: "A350-900", op: "Japan Airlines", field: "RJTT", s: "images/widebodies/55 - JA01XJ - A350-900 - Japan Airlines - RJTT.jpg", w: 3115, h: 2077 },
-        { reg: "", type: "777-200", op: "Emirates", field: "OMDB", s: "images/widebodies/56 - 777-200 - Emirates - OMDB.jpg", w: 1280, h: 857 },
       ]
     },
     "narrowbodies": {
@@ -77,12 +69,6 @@ window.LOG = {
         { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/40 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "A320", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/41 - A320 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1649, own: true },
         { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/42 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1467, own: true },
-        { reg: "N813AK", type: "737 MAX 8", op: "Alaska Airlines", field: "MGGT", s: "images/narrowbodies/50 - N813AK - 737 MAX 8 - Alaska Airlines - MGGT.jpg", w: 2910, h: 1819 },
-        { reg: "N1902U", type: "A320-200", op: "United Airlines", field: "KSFO", s: "images/narrowbodies/51 - N1902U - A320-200 - United Airlines - KSFO.jpg", w: 1280, h: 853 },
-        { reg: "D-AIQT", type: "A320-200", op: "Lufthansa", field: "EDDF", s: "images/narrowbodies/52 - D-AIQT - A320-200 - Lufthansa - EDDF.jpg", w: 2900, h: 1631 },
-        { reg: "N623AA", type: "757-200", op: "American Airlines", field: "KMIA", s: "images/narrowbodies/53 - N623AA - 757-200 - American Airlines - KMIA.jpg", w: 2304, h: 1536 },
-        { reg: "N515UA", type: "757-200", op: "United Airlines", field: "KSFO", s: "images/narrowbodies/54 - N515UA - 757-200 - United Airlines - KSFO.jpg", w: 1280, h: 640 },
-        { reg: "OE-LBS", type: "A320-200", op: "Austrian Airlines", field: "LOWW", s: "images/narrowbodies/55 - OE-LBS - A320-200 - Austrian Airlines - LOWW.jpg", w: 1600, h: 1067 },
       ]
     },
     "regional": {
@@ -96,13 +82,6 @@ window.LOG = {
         { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/05 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "N288SY", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/06 - N288SY - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1700, own: true },
         { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/07 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1468, own: true },
-        { reg: "N174SY", type: "E175", op: "SkyWest for Alaska", field: "KSAN", s: "images/regional/50 - N174SY - E175 - SkyWest for Alaska - KSAN.jpg", w: 1280, h: 606 },
-        { reg: "SP-LID", type: "E175", op: "LOT Polish Airlines", field: "EPWA", s: "images/regional/51 - SP-LID - E175 - LOT Polish Airlines - EPWA.jpg", w: 2304, h: 1536 },
-        { reg: "N186PQ", type: "CRJ900", op: "Delta Connection", field: "KCAK", s: "images/regional/52 - N186PQ - CRJ900 - Delta Connection - KCAK.jpg", w: 2400, h: 1600 },
-        { reg: "OY-KFF", type: "CRJ900", op: "SAS", field: "EYVI", s: "images/regional/53 - OY-KFF - CRJ900 - SAS - EYVI.jpg", w: 1600, h: 816 },
-        { reg: "", type: "Dash 8 Q400", op: "Alaska Airlines", field: "KSEA", s: "images/regional/54 - Dash 8 Q400 - Alaska Airlines - KSEA.jpg", w: 1406, h: 879 },
-        { reg: "C-GKQB", type: "Dash 8 Q400", op: "Porter Airlines", field: "CYTZ", s: "images/regional/55 - C-GKQB - Dash 8 Q400 - Porter Airlines - CYTZ.jpg", w: 1280, h: 960 },
-        { reg: "G-ECOH", type: "Dash 8 Q400", op: "Brussels Airlines", field: "EBBR", s: "images/regional/56 - G-ECOH - Dash 8 Q400 - Brussels Airlines - EBBR.jpg", w: 3456, h: 2304 },
       ]
     },
     "cargo": {
@@ -122,12 +101,6 @@ window.LOG = {
       photos: [
         { reg: "", type: "FA-18 Super Hornet", op: "US Navy Blue Angels", field: "Seafair", s: "images/military/01 - FA-18 Super Hornet - US Navy Blue Angels - Seafair.jpg", w: 2200, h: 1463, own: true },
         { reg: "", type: "FA-18 Super Hornet", op: "US Navy Blue Angels", field: "Seafair", s: "images/military/02 - FA-18 Super Hornet - US Navy Blue Angels - Seafair.jpg", w: 2200, h: 1468, own: true },
-        { reg: "", type: "C-17 Globemaster III", op: "US Air Force", field: "", s: "images/military/50 - C-17 Globemaster III - US Air Force.jpg", w: 1280, h: 960 },
-        { reg: "", type: "C-17 Globemaster III", op: "US Air Force", field: "", s: "images/military/51 - C-17 Globemaster III - US Air Force.jpg", w: 2974, h: 2183 },
-        { reg: "", type: "KC-135 Stratotanker", op: "Wisconsin Air National Guard", field: "", s: "images/military/52 - KC-135 Stratotanker - Wisconsin Air National Guard.jpg", w: 1280, h: 853 },
-        { reg: "", type: "F-15C Eagle", op: "US Air Force", field: "RJTM", s: "images/military/53 - F-15C Eagle - US Air Force - RJTM.jpg", w: 1280, h: 853 },
-        { reg: "", type: "F-15EX Eagle II", op: "US Air Force", field: "", s: "images/military/54 - F-15EX Eagle II - US Air Force.jpg", w: 1280, h: 853 },
-        { reg: "", type: "F-15E Strike Eagle", op: "US Air Force", field: "EGUL", s: "images/military/55 - F-15E Strike Eagle - US Air Force - EGUL.jpg", w: 3500, h: 2333 },
       ]
     },
   }

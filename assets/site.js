@@ -190,7 +190,7 @@
     });
 
     var foot = el("div", "menu-foot");
-    [["Flight Sim", SIM_URL], ["About", "about.html"], ["Credits", "credits.html"]].forEach(function (t) {
+    [["Flight Sim", SIM_URL], ["About", "about.html"]].forEach(function (t) {
       var link = el("a", null, t[0]);
       link.href = t[1];
       foot.appendChild(link);
@@ -239,10 +239,6 @@
     foot.appendChild(el("span", "mono", "Everett Altmann"));
     foot.appendChild(el("span", "mono", "Seattle–Tacoma International"));
     foot.appendChild(el("span", "mono", total + " photographs"));
-
-    var credits = el("a", "mono", "Credits");
-    credits.href = "credits.html";
-    foot.appendChild(credits);
 
     foot.appendChild(el("span", "mono spacer", "© " + new Date().getFullYear()));
     host.replaceWith(foot);
