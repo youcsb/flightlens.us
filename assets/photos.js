@@ -9,6 +9,7 @@ window.LOG = {
       photos: [
         { reg: "N510DN", type: "A350-900", op: "Delta Air Lines", field: "KSEA", s: "images/widebodies/01 - N510DN - A350-900 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "D-AIKS", type: "A330-300", op: "Lufthansa", field: "KSEA", s: "images/widebodies/02 - D-AIKS - A330-300 - Lufthansa - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "787-9", op: "Alaska Airlines", field: "KSEA", s: "images/widebodies/03 - 787-9 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "B-17807", type: "787-10", op: "EVA Air", field: "KSEA", s: "images/widebodies/04 - B-17807 - 787-10 - EVA Air - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "", type: "A330-900neo", op: "Condor", field: "KSEA", s: "images/widebodies/05 - A330-900neo - Condor - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "G-ZBLK", type: "787-10", op: "British Airways", field: "KSEA", s: "images/widebodies/06 - G-ZBLK - 787-10 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
@@ -20,6 +21,8 @@ window.LOG = {
         { reg: "", type: "787", op: "Japan Airlines", field: "KSEA", s: "images/widebodies/12 - 787 - Japan Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
         { reg: "", type: "787-10", op: "British Airways", field: "KSEA", s: "images/widebodies/13 - 787-10 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "A350-900", op: "Lufthansa", field: "KSEA", s: "images/widebodies/14 - A350-900 - Lufthansa - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "787", op: "British Airways", field: "KSEA", s: "images/widebodies/15 - 787 - British Airways - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "A350-900", op: "Delta Air Lines", field: "KSEA", s: "images/widebodies/16 - A350-900 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1237, own: true },
       ]
     },
     "narrowbodies": {
@@ -69,6 +72,14 @@ window.LOG = {
         { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/41 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
         { reg: "", type: "A320", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/42 - A320 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1649, own: true },
         { reg: "", type: "757-200", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/43 - 757-200 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1467, own: true },
+        { reg: "", type: "737-800", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/44 - 737-800 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "N478AS", type: "737-900ER", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/45 - N478AS - 737-900ER - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "A321neo", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/46 - A321neo - Delta Air Lines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "N928DU", type: "737-900ER", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/47 - N928DU - 737-900ER - Delta Air Lines - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "737", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/48 - 737 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "N581NW", type: "757-300", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/49 - N581NW - 757-300 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "N434AS", type: "737-900ER", op: "Alaska Airlines", field: "KSEA", s: "images/narrowbodies/50 - N434AS - 737-900ER - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "757-300", op: "Delta Air Lines", field: "KSEA", s: "images/narrowbodies/51 - 757-300 - Delta Air Lines - KSEA.jpg", w: 2200, h: 1467, own: true },
       ]
     },
     "regional": {
@@ -76,12 +87,15 @@ window.LOG = {
       blurb: "Short hops on small jets and turboprops. Easy to overlook, and some of my favorite shapes on the field.",
       photos: [
         { reg: "", type: "E175", op: "Horizon Air", field: "KSEA", s: "images/regional/01 - E175 - Horizon Air - KSEA.jpg", w: 2200, h: 1650, own: true },
-        { reg: "N651QX", type: "E175", op: "Alaska Airlines", field: "KSEA", s: "images/regional/02 - N651QX - E175 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
-        { reg: "", type: "E175", op: "Alaska Airlines", field: "KSEA", s: "images/regional/03 - E175 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
-        { reg: "", type: "Dash 8 Q400", op: "Air Canada Express", field: "KSEA", s: "images/regional/04 - Dash 8 Q400 - Air Canada Express - KSEA.jpg", w: 2200, h: 1237, own: true },
-        { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/05 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1237, own: true },
-        { reg: "N288SY", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/06 - N288SY - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1700, own: true },
-        { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/07 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1468, own: true },
+        { reg: "N661QX", type: "E175", op: "Horizon Air", field: "KSEA", s: "images/regional/02 - N661QX - E175 - Horizon Air - KSEA.jpg", w: 2200, h: 2200, own: true },
+        { reg: "N651QX", type: "E175", op: "Alaska Airlines", field: "KSEA", s: "images/regional/03 - N651QX - E175 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "E175", op: "Alaska Airlines", field: "KSEA", s: "images/regional/04 - E175 - Alaska Airlines - KSEA.jpg", w: 2200, h: 1466, own: true },
+        { reg: "", type: "Dash 8 Q400", op: "Air Canada Express", field: "KSEA", s: "images/regional/05 - Dash 8 Q400 - Air Canada Express - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/06 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "N288SY", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/07 - N288SY - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1700, own: true },
+        { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/08 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1468, own: true },
+        { reg: "N620QX", type: "E175", op: "Horizon Air", field: "KSEA", s: "images/regional/09 - N620QX - E175 - Horizon Air - KSEA.jpg", w: 2200, h: 1237, own: true },
+        { reg: "", type: "E175", op: "Delta Connection", field: "KSEA", s: "images/regional/10 - E175 - Delta Connection - KSEA.jpg", w: 2200, h: 1237, own: true },
       ]
     },
     "cargo": {

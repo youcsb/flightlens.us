@@ -175,10 +175,12 @@ def read_collection(slug):
         entry["s"] = f"images/{slug}/{name}"
         entry["w"] = width
         entry["h"] = height
-        # Numbers under 50 are Everett's own frames; 50 and up are the
-        # stand-ins waiting to be replaced. The front page shows only his.
-        order = re.match(r"^\s*(\d+)", name)
-        entry["own"] = bool(order) and int(order.group(1)) < 50
+        # Every photograph on the site is Everett's own. There used to be
+        # Wikimedia stand-ins holding the empty rooms, numbered from 50 up to
+        # keep them clear of his; they are gone. The flag stays because the
+        # front page selects on it, but the number no longer decides it — a
+        # room growing past 49 frames must not start marking them as fill.
+        entry["own"] = True
         photos.append(entry)
     return photos
 

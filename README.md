@@ -38,9 +38,9 @@ and you can renumber freely to reorder a room.
 
 Every photograph on the site is Everett's own. Earlier there were stand-ins
 from Wikimedia Commons filling the empty rooms, numbered from 50 up so they
-could never collide with his; those have all been removed. If you ever want
-placeholders again, reuse that convention — the indexer still marks anything
-numbered under 50 as `own`, which is what the front page selects from.
+could never collide with his; those have all been removed, and the indexer no
+longer treats a high number as meaning anything. A room can grow past 49
+frames safely.
 
 ### Then rebuild the index
 

@@ -23,6 +23,15 @@ window.NOTES = {
     "Alaska in script under it \u2014 one of the handful Alaska painted when it " +
     "joined the alliance. Air France is parked behind them both.",
 
+  "images/widebodies/03 - 787-9 - Alaska Airlines - KSEA.jpg":
+    "Alaska flying a widebody. These 787s came over with Hawaiian when the two " +
+    "airlines merged, and seeing one in Alaska colours on my home field still " +
+    "looks wrong in the best way.",
+
+  "images/regional/02 - N661QX - E175 - Horizon Air - KSEA.jpg":
+    "Horizon paints one E175 crimson for Washington State. There is a matching " +
+    "purple one for the Huskies \u2014 catching both is the goal.",
+
   "images/regional/01 - E175 - Horizon Air - KSEA.jpg":
     "Shot through the jetway window at Sea-Tac, close enough to see the crew " +
     "running their checks.",
