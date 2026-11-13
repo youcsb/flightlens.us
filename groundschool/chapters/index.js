@@ -1,0 +1,40 @@
+// Table of contents — mirrors the FAA Pilot's Handbook of Aeronautical Knowledge (FAA-H-8083-25C).
+// To publish a chapter: create chapters/chNN.js (copy _TEMPLATE.js), then set `file` below.
+// sw.js reads this list, so the chapter is cached for offline use automatically.
+self.SKY = self.SKY || {};
+SKY.catalog = [
+  { id: 'ch01', num: 1, emoji: '🛫', title: 'Welcome to the Sky', phak: 'Introduction to Flying', file: 'chapters/ch01.js',
+    topics: ['History of flight', 'The FAA and what it does', 'Types of aircraft', 'Pilot certificates', 'Getting started in flight training'] },
+  { id: 'ch02', num: 2, emoji: '🧠', title: 'Think Like a Pilot', phak: 'Aeronautical Decision-Making', file: 'chapters/ch02.js',
+    topics: ['Risk management', 'PAVE & IMSAFE checklists', 'Hazardous attitudes', 'Situational awareness', 'Single-pilot resource management'] },
+  { id: 'ch03', num: 3, emoji: '🔧', title: 'Anatomy of an Airplane', phak: 'Aircraft Construction', file: 'chapters/ch03.js',
+    topics: ['Fuselage', 'Wings', 'Empennage (tail)', 'Landing gear', 'Powerplant'] },
+  { id: 'ch04', num: 4, emoji: '🌬️', title: 'The Science of Lift', phak: 'Principles of Flight', file: 'chapters/ch04.js',
+    topics: ['The atmosphere', 'Air pressure and density', "Bernoulli's principle", "Newton's laws", 'Airfoil design'] },
+  { id: 'ch05', num: 5, emoji: '✈️', title: 'Forces, Stalls & G’s', phak: 'Aerodynamics of Flight', file: 'chapters/ch05.js',
+    topics: ['The four forces', 'Drag', 'Wingtip vortices & ground effect', 'Axes & stability', 'Turns & load factor', 'Stalls & spins', 'Left-turning tendencies', 'High-speed flight'] },
+  { id: 'ch06', num: 6, emoji: '🕹️', title: 'Taking the Controls', phak: 'Flight Controls', file: 'chapters/ch06.js',
+    topics: ['Ailerons, elevator, rudder', 'Flaps and slats', 'Trim tabs', 'Fly-by-wire'] },
+  { id: 'ch07', num: 7, emoji: '⚙️', title: 'Under the Cowling', phak: 'Aircraft Systems', file: 'chapters/ch07.js',
+    topics: ['Reciprocating engines', 'Propellers', 'Fuel & ignition', 'Electrical system', 'Carburetor icing'] },
+  { id: 'ch08', num: 8, emoji: '🧭', title: 'Reading the Panel', phak: 'Flight Instruments', file: 'chapters/ch08.js',
+    topics: ['Pitot-static system', 'Airspeed indicator & V-speeds', 'Altimeter', 'Gyroscopic instruments', 'Magnetic compass'] },
+  { id: 'ch09', num: 9, emoji: '📘', title: 'The Airplane’s Paperwork', phak: 'Flight Manuals and Other Documents', file: 'chapters/ch09.js',
+    topics: ['POH / AFM', 'Required documents (ARROW)', 'Airworthiness', 'Maintenance & inspections', 'Airworthiness directives'] },
+  { id: 'ch10', num: 10, emoji: '⚖️', title: 'Balancing Act', phak: 'Weight and Balance', file: 'chapters/ch10.js',
+    topics: ['Weight terms', 'Center of gravity', 'Moment & arm', 'Computing weight and balance'] },
+  { id: 'ch11', num: 11, emoji: '📈', title: 'How Far, How Fast', phak: 'Aircraft Performance', file: 'chapters/ch11.js',
+    topics: ['Density altitude', 'Takeoff & landing performance', 'Climb performance', 'Reading performance charts'] },
+  { id: 'ch12', num: 12, emoji: '⛅', title: 'How Weather Works', phak: 'Weather Theory', file: 'chapters/ch12.js',
+    topics: ['Atmosphere & temperature', 'Wind & pressure', 'Moisture & clouds', 'Air masses & fronts', 'Thunderstorms'] },
+  { id: 'ch13', num: 13, emoji: '📡', title: 'Decoding the Weather', phak: 'Aviation Weather Services', file: 'chapters/ch13.js',
+    topics: ['METARs', 'TAFs', 'Weather charts', 'PIREPs', 'In-flight weather advisories'] },
+  { id: 'ch14', num: 14, emoji: '🛬', title: 'Life at the Airport', phak: 'Airport Operations', file: 'chapters/ch14.js',
+    topics: ['Runway markings & signs', 'Airport lighting', 'Traffic patterns', 'Radio communications', 'Wake turbulence avoidance'] },
+  { id: 'ch15', num: 15, emoji: '🗺️', title: 'Invisible Highways', phak: 'Airspace', file: 'chapters/ch15.js',
+    topics: ['Class A, B, C, D, E, G', 'Special use airspace', 'TFRs', 'VFR weather minimums'] },
+  { id: 'ch16', num: 16, emoji: '🧭', title: 'Finding Your Way', phak: 'Navigation', file: 'chapters/ch16.js',
+    topics: ['Sectional charts', 'Latitude & longitude', 'Pilotage & dead reckoning', 'Wind triangle', 'VOR & GPS'] },
+  { id: 'ch17', num: 17, emoji: '🫀', title: 'Your Body in the Sky', phak: 'Aeromedical Factors', file: 'chapters/ch17.js',
+    topics: ['Hypoxia', 'Spatial disorientation', 'Vision in flight', 'Motion sickness', 'Fitness to fly'] }
+];

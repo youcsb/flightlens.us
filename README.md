@@ -120,6 +120,7 @@ images/<collection>/  the photographs
 originals/            camera originals — not published (see .gitignore)
 tools/index-photos.py rebuilds photos.js from the images folders
 tools/serve.py        local preview server
+groundschool/         Sky Cadet ground school app (see its own README)
 ```
 
 ---

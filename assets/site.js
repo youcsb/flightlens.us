@@ -139,6 +139,10 @@
        GitHub cannot renew its certificate, exactly like the apex. */
     var SIM_URL = "https://game.flightlens.us/";
 
+    /* Ground school (Sky Cadet): a self-contained study app in groundschool/,
+       with its own styles and offline service worker, linked like the sim. */
+    var SCHOOL_URL = "groundschool/";
+
     var bar = el("header", "masthead");
     bar.setAttribute("data-solid", page === "home" ? "false" : "true");
 
@@ -157,7 +161,7 @@
       nav.appendChild(link);
     });
 
-    [["Flight Sim", SIM_URL, "sim"], ["About", "about.html", "about"]].forEach(function (t) {
+    [["Flight Sim", SIM_URL, "sim"], ["Ground School", SCHOOL_URL, "school"], ["About", "about.html", "about"]].forEach(function (t) {
       var link = el("a", null, t[0]);
       link.href = t[1];
       if (page === t[2]) link.setAttribute("aria-current", "page");
@@ -190,7 +194,7 @@
     });
 
     var foot = el("div", "menu-foot");
-    [["Flight Sim", SIM_URL], ["About", "about.html"]].forEach(function (t) {
+    [["Flight Sim", SIM_URL], ["Ground School", SCHOOL_URL], ["About", "about.html"]].forEach(function (t) {
       var link = el("a", null, t[0]);
       link.href = t[1];
       foot.appendChild(link);
